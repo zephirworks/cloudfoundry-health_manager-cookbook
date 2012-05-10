@@ -34,7 +34,7 @@ intervals:
   # Time to wait before starting analysis for stopped applications.
   droplet_lost: <%= node[:cloudfoundry_health_manager][:droplet_lost] %>
   # Interval between scans for analysis of applications.
-  droplets_analysis: <%= node[:cloudfoundry_health_manager][:droplets_analysis] %>
+  droplets_analysis: <%= node[:cloudfoundry_health_manager][:droplet_analysis] %>
   # An application is deemed to be flapping if it is found to be in a crashed
   # state (after a restart following every crash) for more than "flapping_death"
   # number of times in an interval that is "flapping_timeout" long.
