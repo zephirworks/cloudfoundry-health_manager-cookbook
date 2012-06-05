@@ -19,7 +19,7 @@ Cookbooks
 ---------
 
 Requires Opscode's bluepill cookbook for creating init scripts and
-trotter's cloudfoundry-common cookbook.
+trotter's cloudfoundry cookbook.
 
 Usage
 =====
@@ -40,8 +40,8 @@ Attributes
 ==========
 
 * `cloudfoundry_health_manager[:log_level]` - The Health Manager's log level. Default is `info"`.
-* `cloudfoundry_health_manager[:log_file]` - Where to write the Health Manager's logs. Default is `File.join(node[:cloudfoundry_common][:log_dir], "health_manager.log")`.
-* `cloudfoundry_health_manager[:pid_file]` - Where to write the Health Manager's pid file. Default is `File.join(node[:cloudfoundry_common][:pid_dir], "health_manager.pid")`.
+* `cloudfoundry_health_manager[:log_file]` - Where to write the Health Manager's logs. Default is `File.join(node['cloudfoundry']['log_dir'], "health_manager.log")`.
+* `cloudfoundry_health_manager[:pid_file]` - Where to write the Health Manager's pid file. Default is `File.join(node['cloudfoundry']['pid_dir'], "health_manager.pid")`.
 * `cloudfoundry_health_manager[:database_scan]` - TODO (trotter): Find out what this does. Default is `60`.
 * `cloudfoundry_health_manager[:droplet_lost]` - TODO (trotter): Find out what this does. Default is `30`.
 * `cloudfoundry_health_manager[:droplet_analysis]` - TODO (trotter): Find out what this does. Default is `10`.

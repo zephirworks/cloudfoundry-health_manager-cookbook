@@ -17,4 +17,20 @@
 # limitations under the License.
 #
 
-cloudfoundry_component "health_manager"
+# XXX this could be merged with cloud_controller
+cloudfoundry_source "health_manager" do
+  path          node['cloudfoundry_health_manager']['vcap']['install_path']
+  repository    node['cloudfoundry_health_manager']['vcap']['repo']
+  reference     node['cloudfoundry_health_manager']['vcap']['reference']
+  subdirectory  "health_manager"
+end
+
+install_path = File.join(node['cloudfoundry_health_manager']['vcap']['install_path'], "health_manager")
+
+cloudfoundry_component "health_manager" do
+  install_path install_path
+  bin_file File.join(install_path, "bin", "health_manager")
+  pid_file node['cloudfoundry_health_manager']['pid_file']
+  log_file node['cloudfoundry_health_manager']['log_file']
+  subscribes    :restart, resources(:cloudfoundry_source => "health_manager")
+end
