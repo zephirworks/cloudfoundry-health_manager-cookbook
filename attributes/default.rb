@@ -8,7 +8,7 @@ default['cloudfoundry_health_manager']['vcap']['repo']         = "https://github
 
 # Git reference to use when fetching the CloudFoundry code. Can be
 # either a specific sha or a reference such as `HEAD` or `master`.
-default['cloudfoundry_health_manager']['vcap']['reference']    = "b13725d377fda7998cc82029187825587c2e0919"
+default['cloudfoundry_health_manager']['vcap']['reference']    = "31ab65cdf0b9863677675b3812aac7305001267e"
 
 # The Health Manager's log level.
 default['cloudfoundry_health_manager']['log_level'] = "info"
