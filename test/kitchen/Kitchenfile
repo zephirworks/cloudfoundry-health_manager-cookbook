@@ -1,0 +1,3 @@
+cookbook "cloudfoundry-health_manager" do
+  runtimes []
+end

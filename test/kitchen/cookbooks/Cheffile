@@ -1,0 +1,9 @@
+site 'http://community.opscode.com/api/v1'
+
+cookbook "cloudfoundry",
+  :git => "https://github.com/andreacampi/cloudfoundry-cookbook.git",
+  :ref => "master"
+
+cookbook "cloudfoundry-cloud_controller",
+  :git => "https://github.com/andreacampi/cloudfoundry-cloud_controller-cookbook.git",
+  :ref => "master"
