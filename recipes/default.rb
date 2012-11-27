@@ -2,6 +2,7 @@
 # Cookbook Name:: cloudfoundry-health_manager
 # Recipe:: default
 #
+# Copyright 2012, ZephirWorks
 # Copyright 2012, Trotter Cashion
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
