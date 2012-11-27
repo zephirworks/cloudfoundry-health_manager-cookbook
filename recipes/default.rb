@@ -29,7 +29,6 @@ include_recipe "rbenv::ruby_build"
 
 rbenv_ruby ruby_ver
 
-# XXX this could be merged with cloud_controller
 cloudfoundry_source "health_manager" do
   path          node['cloudfoundry_health_manager']['vcap']['install_path']
   repository    node['cloudfoundry_health_manager']['vcap']['repo']
