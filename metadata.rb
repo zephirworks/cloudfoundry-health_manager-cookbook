@@ -9,6 +9,6 @@ version          "0.99.0"
   supports os
 end
 
-%w{ cloudfoundry cloudfoundry-cloud_controller }.each do |cb|
+%w{ cloudfoundry cloudfoundry-cloud_controller rbenv }.each do |cb|
   depends cb
 end

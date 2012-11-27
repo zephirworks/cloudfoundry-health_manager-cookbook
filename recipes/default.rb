@@ -17,6 +17,17 @@
 # limitations under the License.
 #
 
+#
+# Install the correct rbenv
+#
+ruby_ver = node['cloudfoundry_health_manager']['ruby_version']
+ruby_path = ruby_bin_path(ruby_ver)
+
+include_recipe "rbenv::default"
+include_recipe "rbenv::ruby_build"
+
+rbenv_ruby ruby_ver
+
 # XXX this could be merged with cloud_controller
 cloudfoundry_source "health_manager" do
   path          node['cloudfoundry_health_manager']['vcap']['install_path']
