@@ -24,16 +24,54 @@
 ruby_ver = node['cloudfoundry_health_manager']['ruby_version']
 ruby_path = ruby_bin_path(ruby_ver)
 
+include_recipe "cloudfoundry-cloud_controller::install_deps"
+
 include_recipe "rbenv::default"
 include_recipe "rbenv::ruby_build"
 
 rbenv_ruby ruby_ver
 
+#
+# Create all the directories we are going to need
+#
+%w[log_dir].each do |d|
+  directory node['cloudfoundry'][d] do
+    recursive true
+    owner node['cloudfoundry']['user']
+    mode  0755
+  end
+end
+%w[data_dir].each do |d|
+  directory node['cloudfoundry_cloud_controller'][d] do
+    recursive true
+    owner node['cloudfoundry']['user']
+    mode  '0755'
+  end
+end
+%w[droplets_dir resources_dir staging_manifests_dir tmp_dir].each do |d|
+  directory node['cloudfoundry_cloud_controller']['server'][d] do
+    recursive true
+    owner node['cloudfoundry']['user']
+    mode  '0755'
+  end
+end
+
+#
+# Install and configure
+#
 cloudfoundry_source "health_manager" do
   path          node['cloudfoundry_health_manager']['vcap']['install_path']
   repository    node['cloudfoundry_health_manager']['vcap']['repo']
   reference     node['cloudfoundry_health_manager']['vcap']['reference']
   subdirectory  "health_manager"
+end
+
+br = bash "install extra gems for health_manager" do
+  user node['cloudfoundry_health_manager']['user']
+  cwd  File.join(node['cloudfoundry_health_manager']['vcap']['install_path'], "cloud_controller")
+  code "#{::File.join(ruby_path, "bundle")} install --without=test --standalone"
+  action :nothing
+  subscribes :run, resources(:cloudfoundry_source => "health_manager")
 end
 
 install_path = File.join(node['cloudfoundry_health_manager']['vcap']['install_path'], "health_manager")

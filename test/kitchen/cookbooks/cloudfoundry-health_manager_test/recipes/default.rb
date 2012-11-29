@@ -18,3 +18,6 @@
 #
 
 include_recipe "cloudfoundry::user"
+include_recipe "nats-server"
+include_recipe "postgresql::server"
+include_recipe "cloudfoundry-cloud_controller::database"
