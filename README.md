@@ -43,16 +43,16 @@ as your Cloud Controller, typical usage in a recipe will look like so:
 Attributes
 ==========
 
-* `cloudfoundry_health_manager[:log_level]` - The Health Manager's log level. Default is `info"`.
-* `cloudfoundry_health_manager[:log_file]` - Where to write the Health Manager's logs. Default is `File.join(node['cloudfoundry']['log_dir'], "health_manager.log")`.
-* `cloudfoundry_health_manager[:pid_file]` - Where to write the Health Manager's pid file. Default is `File.join(node['cloudfoundry']['pid_dir'], "health_manager.pid")`.
-* `cloudfoundry_health_manager[:database_scan]` - TODO (trotter): Find out what this does. Default is `60`.
-* `cloudfoundry_health_manager[:droplet_lost]` - TODO (trotter): Find out what this does. Default is `30`.
-* `cloudfoundry_health_manager[:droplet_analysis]` - TODO (trotter): Find out what this does. Default is `10`.
-* `cloudfoundry_health_manager[:flapping_death]` - TODO (trotter): Find out what this does. Default is `3`.
-* `cloudfoundry_health_manager[:flapping_timeout]` - TODO (trotter): Find out what this does. Default is `180`.
-* `cloudfoundry_health_manager[:restart_timeout]` - TODO (trotter): Find out what this does. Default is `20`.
-* `cloudfoundry_health_manager[:stable_state]` - TODO (trotter): Find out what this does. Default is `60`.
+* `node['cloudfoundry_health_manager']['log_level']` - The Health Manager's log level. Default is `info"`.
+* `node['cloudfoundry_health_manager']['log_file']` - Where to write the Health Manager's logs. Default is `File.join(node['cloudfoundry']['log_dir'], "health_manager.log")`.
+* `node['cloudfoundry_health_manager']['pid_file']` - Where to write the Health Manager's pid file. Default is `File.join(node['cloudfoundry']['pid_dir'], "health_manager.pid")`.
+* `node['cloudfoundry_health_manager']['database_scan']` - TODO (trotter): Find out what this does. Default is `60`.
+* `node['cloudfoundry_health_manager']['droplet_lost']` - TODO (trotter): Find out what this does. Default is `30`.
+* `node['cloudfoundry_health_manager']['droplet_analysis']` - TODO (trotter): Find out what this does. Default is `10`.
+* `node['cloudfoundry_health_manager']['flapping_death']` - TODO (trotter): Find out what this does. Default is `3`.
+* `node['cloudfoundry_health_manager']['flapping_timeout']` - TODO (trotter): Find out what this does. Default is `180`.
+* `node['cloudfoundry_health_manager']['restart_timeout']` - TODO (trotter): Find out what this does. Default is `20`.
+* `node['cloudfoundry_health_manager']['stable_state']` - TODO (trotter): Find out what this does. Default is `60`.
 
 License and Author
 ==================
