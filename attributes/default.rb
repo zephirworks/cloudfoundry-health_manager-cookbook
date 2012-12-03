@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: cloudfoundry-stager
+# Cookbook Name:: cloudfoundry-health_manager
 # Attributes:: default
 #
 # Copyright 2012, ZephirWorks

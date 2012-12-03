@@ -1,7 +1,9 @@
 Description
 ===========
 
-Installs and configures a CloudFoundry Health Manager.
+Install the Cloud Foundry [health_manager](https://github.com/cloudfoundry/health_manager),
+a mandatory component of a [Cloud Foundry](http://www.cloudfoundry.org)
+installation.
 
 Requirements
 ============
@@ -14,12 +16,14 @@ Platform
 Tested on:
 
 * Ubuntu 10.04
+* Ubuntu 12.04
 
 Cookbooks
 ---------
 
-Requires Opscode's bluepill cookbook for creating init scripts and
-trotter's cloudfoundry cookbook.
+* cloudfoundry
+* cloudfoundry-cloud_controller
+* rbenv
 
 Usage
 =====
@@ -53,9 +57,11 @@ Attributes
 License and Author
 ==================
 
-Author:: Trotter Cashion (<cashion@gmail.com>)
+* Author:: Andrea Campi (<andrea.campi@zephirworks.com>)
+* Author:: Trotter Cashion (<cashion@gmail.com>)
 
-Copyright:: 2012 Trotter Cashion
+* Copyright:: 2012 ZephirWorks
+* Copyright:: 2012 Trotter Cashion
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
