@@ -30,8 +30,6 @@ default['cloudfoundry_health_manager']['vcap']['repo']         = "https://github
 # either a specific sha or a reference such as `HEAD` or `master`.
 default['cloudfoundry_health_manager']['vcap']['reference']    = "31ab65cdf0b9863677675b3812aac7305001267e"
 
-default['cloudfoundry_health_manager']['ruby_version'] = node['cloudfoundry']['ruby_1_9_2_version']
-
 # The Health Manager's log level.
 default['cloudfoundry_health_manager']['log_level'] = "info"
 

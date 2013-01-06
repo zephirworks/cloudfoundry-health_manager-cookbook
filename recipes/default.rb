@@ -2,7 +2,7 @@
 # Cookbook Name:: cloudfoundry-health_manager
 # Recipe:: default
 #
-# Copyright 2012, ZephirWorks
+# Copyright 2012-2013, ZephirWorks
 # Copyright 2012, Trotter Cashion
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,26 +19,17 @@
 #
 
 #
-# Install the correct rbenv
-#
-ruby_ver = node['cloudfoundry_health_manager']['ruby_version']
-ruby_path = ruby_bin_path(ruby_ver)
-
-include_recipe "cloudfoundry-cloud_controller::install_deps"
-
-include_recipe "rbenv::default"
-include_recipe "rbenv::ruby_build"
-
-rbenv_ruby ruby_ver
-
-#
 # Install dependencies
 #
+include_recipe "cloudfoundry-health_manager::_server_deps"
 include_recipe "cloudfoundry-health_manager::_server_dirs"
 
 #
 # Install and configure
 #
+ruby_ver = node['cloudfoundry_cloud_controller']['ruby_version']
+ruby_path = ruby_bin_path(ruby_ver)
+
 cloudfoundry_source "health_manager" do
   path          node['cloudfoundry_health_manager']['vcap']['install_path']
   repository    node['cloudfoundry_health_manager']['vcap']['repo']
