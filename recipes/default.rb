@@ -42,7 +42,7 @@ br = bash "install extra gems for health_manager" do
   cwd  File.join(node['cloudfoundry_health_manager']['vcap']['install_path'], "cloud_controller")
   code "#{::File.join(ruby_path, "bundle")} install --without=test --standalone"
   action :nothing
-  subscribes :run, resources(:cloudfoundry_source => "health_manager")
+  subscribes :run, "cloudfoundry_source[health_manager]"
 end
 
 install_path = File.join(node['cloudfoundry_health_manager']['vcap']['install_path'], "health_manager")
@@ -52,5 +52,5 @@ cloudfoundry_component "health_manager" do
   bin_file File.join(install_path, "bin", "health_manager")
   pid_file node['cloudfoundry_health_manager']['pid_file']
   log_file node['cloudfoundry_health_manager']['log_file']
-  subscribes    :restart, resources(:cloudfoundry_source => "health_manager")
+  subscribes :restart, "cloudfoundry_source[health_manager]"
 end
