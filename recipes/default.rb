@@ -32,15 +32,9 @@ include_recipe "rbenv::ruby_build"
 rbenv_ruby ruby_ver
 
 #
-# Create all the directories we are going to need
+# Install dependencies
 #
-%w[log_dir].each do |d|
-  directory node['cloudfoundry'][d] do
-    recursive true
-    owner node['cloudfoundry']['user']
-    mode  0755
-  end
-end
+include_recipe "cloudfoundry-health_manager::_server_dirs"
 
 #
 # Install and configure
