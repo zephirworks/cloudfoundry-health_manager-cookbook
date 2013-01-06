@@ -18,8 +18,13 @@
 # limitations under the License.
 #
 
-%w[log_dir].each do |d|
-  directory node['cloudfoundry'][d] do
+node.default['cloudfoundry_health_manager']['log_dir'] = node['cloudfoundry']['log_dir']
+node.default['cloudfoundry_health_manager']['pid_dir'] = node['cloudfoundry']['pid_dir']
+node.default['cloudfoundry_health_manager']['log_file'] = File.join(node['cloudfoundry_health_manager']['log_dir'], "health_manager.log")
+node.default['cloudfoundry_health_manager']['pid_file'] = File.join(node['cloudfoundry_health_manager']['pid_dir'], "health_manager.pid")
+
+%w[log_dir pid_dir].each do |d|
+  directory node['cloudfoundry_health_manager'][d] do
     recursive true
     owner node['cloudfoundry']['user']
     group node['cloudfoundry']['group']

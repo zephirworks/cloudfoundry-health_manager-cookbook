@@ -18,8 +18,6 @@
 # limitations under the License.
 #
 
-include_attribute "cloudfoundry"
-
 # Where to install the CloudFoundry code.
 default['cloudfoundry_health_manager']['vcap']['install_path'] = "/srv/vcap-health_manager"
 
@@ -32,12 +30,6 @@ default['cloudfoundry_health_manager']['vcap']['reference']    = "31ab65cdf0b986
 
 # The Health Manager's log level.
 default['cloudfoundry_health_manager']['log_level'] = "info"
-
-# Where to write the Health Manager's logs.
-default['cloudfoundry_health_manager']['log_file'] = File.join(node['cloudfoundry']['log_dir'], "health_manager.log")
-
-# Where to write the Health Manager's pid file.
-default['cloudfoundry_health_manager']['pid_file'] = File.join(node['cloudfoundry']['pid_dir'], "health_manager.pid")
 
 # TODO (trotter): Find out what this does.
 default['cloudfoundry_health_manager']['database_scan']    = 60
