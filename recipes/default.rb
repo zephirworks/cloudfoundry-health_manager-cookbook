@@ -41,20 +41,6 @@ rbenv_ruby ruby_ver
     mode  0755
   end
 end
-%w[data_dir].each do |d|
-  directory node['cloudfoundry_cloud_controller'][d] do
-    recursive true
-    owner node['cloudfoundry']['user']
-    mode  '0755'
-  end
-end
-%w[droplets_dir resources_dir staging_manifests_dir tmp_dir].each do |d|
-  directory node['cloudfoundry_cloud_controller']['server'][d] do
-    recursive true
-    owner node['cloudfoundry']['user']
-    mode  '0755'
-  end
-end
 
 #
 # Install and configure
