@@ -10,6 +10,6 @@ version          "1.0.1"
   supports os
 end
 
-depends "cloudfoundry", "~> 1.2.0"
+depends "cloudfoundry", "~> 1.3.0"
 depends "cloudfoundry-cloud_controller", "~> 1.3.0"
 depends "rbenv"

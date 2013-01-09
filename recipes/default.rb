@@ -35,6 +35,7 @@ cloudfoundry_source "health_manager" do
   repository    node['cloudfoundry_health_manager']['vcap']['repo']
   reference     node['cloudfoundry_health_manager']['vcap']['reference']
   subdirectory  "health_manager"
+  ruby_version  ruby_ver
 end
 
 br = bash "install extra gems for health_manager" do
@@ -49,6 +50,7 @@ install_path = File.join(node['cloudfoundry_health_manager']['vcap']['install_pa
 
 cloudfoundry_component "health_manager" do
   install_path install_path
+  ruby_version  ruby_ver
   bin_file File.join(install_path, "bin", "health_manager")
   pid_file node['cloudfoundry_health_manager']['pid_file']
   log_file node['cloudfoundry_health_manager']['log_file']
