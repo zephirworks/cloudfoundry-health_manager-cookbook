@@ -19,8 +19,3 @@
 
 include_recipe "cloudfoundry::user"
 include_recipe "nats::server"
-
-node.set['postgresql']['password']['postgres'] = 'test-password'
-
-include_recipe "postgresql::server"
-include_recipe "cloudfoundry-cloud_controller::database"
