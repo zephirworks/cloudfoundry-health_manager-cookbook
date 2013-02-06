@@ -6,6 +6,8 @@ logging:
   level: <%= node['cloudfoundry_health_manager']['log_level'] %>
 pid: <%= node['cloudfoundry_health_manager']['pid_file'] %>
 index: 0
+bulk_api:
+  host: <%= cloud_controller_url %>
 
 intervals:
   <% intervals = node['cloudfoundry_health_manager']['intervals'] %>
