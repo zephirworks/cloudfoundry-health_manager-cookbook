@@ -29,15 +29,7 @@ Usage
 
 This cookbook will install the CloudFoundry Health Manager on the target
 node along with the necessary configuration files and init scripts to
-run it. Because the database required by a Health Manager is shared with
-the CloudController, you may need to use the
-`cloudfoundry-cloud_controller::database` recipe from the
-`cloudfoundry-cloud_controller` cookbook to setup the Health Manager's
-database. Assuming you're running a Health Manager on the same machine
-as your Cloud Controller, typical usage in a recipe will look like so:
-
-    include_recipe "cloudfoundry-cloud_controller"
-    include_recipe "cloudfoundry-health_manager"
+run it.
 
 Attributes
 ==========
@@ -45,7 +37,6 @@ Attributes
 * `node['cloudfoundry_health_manager']['log_level']` - The Health Manager's log level. Default is `info"`.
 * `node['cloudfoundry_health_manager']['log_file']` - Where to write the Health Manager's logs. Default is `File.join(node['cloudfoundry']['log_dir'], "health_manager.log")`.
 * `node['cloudfoundry_health_manager']['pid_file']` - Where to write the Health Manager's pid file. Default is `File.join(node['cloudfoundry']['pid_dir'], "health_manager.pid")`.
-* `node['cloudfoundry_health_manager']['database_scan']` - TODO (trotter): Find out what this does. Default is `60`.
 * `node['cloudfoundry_health_manager']['droplet_lost']` - TODO (trotter): Find out what this does. Default is `30`.
 * `node['cloudfoundry_health_manager']['droplet_analysis']` - TODO (trotter): Find out what this does. Default is `10`.
 * `node['cloudfoundry_health_manager']['flapping_death']` - TODO (trotter): Find out what this does. Default is `3`.
