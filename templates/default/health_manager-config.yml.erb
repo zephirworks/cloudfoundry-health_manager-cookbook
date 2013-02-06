@@ -9,9 +9,9 @@ index: 0
 
 intervals:
   <% intervals = node['cloudfoundry_health_manager']['intervals'] %>
-  droplet_lost: <%= intervals['droplet_lost'] %>
-  droplets_analysis: <%= intervals['droplet_analysis'] %>
-  flapping_death: <%= intervals['flapping_death'] %>
-  flapping_timeout: <%= intervals['flapping_timeout'] %>
-  restart_timeout: <%= intervals['restart_timeout'] %>
-  stable_state: <%= intervals['stable_state'] %>
+  droplet_lost:           <%= intervals['droplet_lost'] %>
+  droplets_analysis:      <%= intervals['droplet_analysis'] %>
+  flapping_death:         <%= intervals['flapping_death'] %>
+  flapping_timeout:       <%= intervals['flapping_timeout'] %>
+  restart_timeout:        <%= intervals['restart_timeout'] %>
+  stable_state:           <%= intervals['stable_state'] %>
