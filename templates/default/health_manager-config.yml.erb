@@ -8,9 +8,10 @@ pid: <%= node['cloudfoundry_health_manager']['pid_file'] %>
 index: 0
 
 intervals:
-  droplet_lost: <%= node['cloudfoundry_health_manager']['droplet_lost'] %>
-  droplets_analysis: <%= node['cloudfoundry_health_manager']['droplet_analysis'] %>
-  flapping_death: <%= node['cloudfoundry_health_manager']['flapping_death'] %>
-  flapping_timeout: <%= node['cloudfoundry_health_manager']['flapping_timeout'] %>
-  restart_timeout: <%= node['cloudfoundry_health_manager']['restart_timeout'] %>
-  stable_state: <%= node['cloudfoundry_health_manager']['stable_state'] %>
+  <% intervals = node['cloudfoundry_health_manager']['intervals'] %>
+  droplet_lost: <%= intervals['droplet_lost'] %>
+  droplets_analysis: <%= intervals['droplet_analysis'] %>
+  flapping_death: <%= intervals['flapping_death'] %>
+  flapping_timeout: <%= intervals['flapping_timeout'] %>
+  restart_timeout: <%= intervals['restart_timeout'] %>
+  stable_state: <%= intervals['stable_state'] %>

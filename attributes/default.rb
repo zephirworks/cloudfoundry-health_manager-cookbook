@@ -31,20 +31,9 @@ default['cloudfoundry_health_manager']['reference']    = "2380722539bb8169602a38
 # The Health Manager's log level.
 default['cloudfoundry_health_manager']['log_level'] = "info"
 
-# TODO (trotter): Find out what this does.
-default['cloudfoundry_health_manager']['droplet_lost']     = 30
-
-# TODO (trotter): Find out what this does.
-default['cloudfoundry_health_manager']['droplet_analysis'] = 10
-
-# TODO (trotter): Find out what this does.
-default['cloudfoundry_health_manager']['flapping_death']   = 3
-
-# TODO (trotter): Find out what this does.
-default['cloudfoundry_health_manager']['flapping_timeout'] = 180
-
-# TODO (trotter): Find out what this does.
-default['cloudfoundry_health_manager']['restart_timeout']  = 20
-
-# TODO (trotter): Find out what this does.
-default['cloudfoundry_health_manager']['stable_state']     = 60
+default['cloudfoundry_health_manager']['intervals']['droplet_lost']     = 30
+default['cloudfoundry_health_manager']['intervals']['droplet_analysis'] = 10
+default['cloudfoundry_health_manager']['intervals']['flapping_death']   = 3
+default['cloudfoundry_health_manager']['intervals']['flapping_timeout'] = 180
+default['cloudfoundry_health_manager']['intervals']['restart_timeout']  = 20
+default['cloudfoundry_health_manager']['intervals']['stable_state']     = 60
