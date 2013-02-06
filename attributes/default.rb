@@ -19,14 +19,14 @@
 #
 
 # Where to install the CloudFoundry code.
-default['cloudfoundry_health_manager']['vcap']['install_path'] = "/srv/vcap-health_manager"
+default['cloudfoundry_health_manager']['install_path'] = "/srv/cloudfoundry/health_manager"
 
 # Repository to use when fetching the CloudFoundry code.
-default['cloudfoundry_health_manager']['vcap']['repo']         = "https://github.com/cloudfoundry/cloud_controller.git"
+default['cloudfoundry_health_manager']['repo']         = "https://github.com/cloudfoundry/health_manager.git"
 
 # Git reference to use when fetching the CloudFoundry code. Can be
 # either a specific sha or a reference such as `HEAD` or `master`.
-default['cloudfoundry_health_manager']['vcap']['reference']    = "31ab65cdf0b9863677675b3812aac7305001267e"
+default['cloudfoundry_health_manager']['reference']    = "2380722539bb8169602a385b499465edaa92da33"
 
 # The Health Manager's log level.
 default['cloudfoundry_health_manager']['log_level'] = "info"

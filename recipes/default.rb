@@ -18,41 +18,21 @@
 # limitations under the License.
 #
 
-#
-# Install dependencies
-#
 include_recipe "cloudfoundry-health_manager::_server_deps"
 include_recipe "cloudfoundry-health_manager::_server_dirs"
 
-#
-# Install and configure
-#
-ruby_ver = node['cloudfoundry_cloud_controller']['ruby_version']
-ruby_path = ruby_bin_path(ruby_ver)
-
 cloudfoundry_source "health_manager" do
-  path          node['cloudfoundry_health_manager']['vcap']['install_path']
-  repository    node['cloudfoundry_health_manager']['vcap']['repo']
-  reference     node['cloudfoundry_health_manager']['vcap']['reference']
-  subdirectory  "health_manager"
-  ruby_version  ruby_ver
+  path          node['cloudfoundry_health_manager']['install_path']
+  repository    node['cloudfoundry_health_manager']['repo']
+  reference     node['cloudfoundry_health_manager']['reference']
+  ruby_version  node['cloudfoundry_health_manager']['ruby_version']
 end
-
-br = bash "install extra gems for health_manager" do
-  user node['cloudfoundry_health_manager']['user']
-  cwd  File.join(node['cloudfoundry_health_manager']['vcap']['install_path'], "cloud_controller")
-  code "#{::File.join(ruby_path, "bundle")} install --without=test --standalone"
-  action :nothing
-  subscribes :run, "cloudfoundry_source[health_manager]"
-end
-
-install_path = File.join(node['cloudfoundry_health_manager']['vcap']['install_path'], "health_manager")
 
 cloudfoundry_component "health_manager" do
-  install_path install_path
-  ruby_version  ruby_ver
-  bin_file File.join(install_path, "bin", "health_manager")
-  pid_file node['cloudfoundry_health_manager']['pid_file']
-  log_file node['cloudfoundry_health_manager']['log_file']
+  install_path  node['cloudfoundry_health_manager']['install_path']
+  ruby_version  node['cloudfoundry_health_manager']['ruby_version']
+  pid_file      node['cloudfoundry_health_manager']['pid_file']
+  log_file      node['cloudfoundry_health_manager']['log_file']
+  action        [:create, :enable]
   subscribes :restart, "cloudfoundry_source[health_manager]"
 end
