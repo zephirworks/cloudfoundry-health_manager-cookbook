@@ -34,6 +34,16 @@ run it.
 Attributes
 ==========
 
+* `node['cloudfoundry_health_manager']['install_path']` - Path to a
+directory that will hold the health_manager code. Defaults to
+`/srv/cloudfoundry/health_manager`.
+* `node['cloudfoundry_health_manager']['repo']` - Source repository
+for the health_manager code. Defaults to
+`https://github.com/cloudfoundry/health_manager.git`.
+* `node['cloudfoundry_health_manager']['reference']` - Git reference to
+use when fetching the health_manager code. Can be either a specific sha or
+a reference such as `HEAD` or `master`. Defaults to the latest version that
+was fully tested.
 * `node['cloudfoundry_health_manager']['log_level']` - The health_manager
 log level. Defaults to `info"`.
 * `node['cloudfoundry_health_manager']['log_file']` - Where to write the
