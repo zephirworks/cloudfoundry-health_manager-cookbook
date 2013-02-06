@@ -37,12 +37,37 @@ Attributes
 * `node['cloudfoundry_health_manager']['log_level']` - The Health Manager's log level. Default is `info"`.
 * `node['cloudfoundry_health_manager']['log_file']` - Where to write the Health Manager's logs. Default is `File.join(node['cloudfoundry']['log_dir'], "health_manager.log")`.
 * `node['cloudfoundry_health_manager']['pid_file']` - Where to write the Health Manager's pid file. Default is `File.join(node['cloudfoundry']['pid_dir'], "health_manager.pid")`.
-* `node['cloudfoundry_health_manager']['droplet_lost']` - TODO (trotter): Find out what this does. Default is `30`.
-* `node['cloudfoundry_health_manager']['droplet_analysis']` - TODO (trotter): Find out what this does. Default is `10`.
-* `node['cloudfoundry_health_manager']['flapping_death']` - TODO (trotter): Find out what this does. Default is `3`.
-* `node['cloudfoundry_health_manager']['flapping_timeout']` - TODO (trotter): Find out what this does. Default is `180`.
-* `node['cloudfoundry_health_manager']['restart_timeout']` - TODO (trotter): Find out what this does. Default is `20`.
-* `node['cloudfoundry_health_manager']['stable_state']` - TODO (trotter): Find out what this does. Default is `60`.
+
+You may also tune a few settings that control internal parameters of the
+algorithm. This is only recommended if you understand what you are doing.
+See the [health_manager README](https://github.com/cloudfoundry/health_manager/blob/master/README.md)
+for more information:
+
+* `node['cloudfoundry_health_manager']['interval']['expected_state_update']` -
+How often (in seconds) should the health_manager refresh its snapshot of the
+"expected state" of the system. Defaults to `60`.
+* `node['cloudfoundry_health_manager']['interval']['droplet_lost']` - Time
+limit (in seconds) between heartbeats; if information on a droplet is not
+received, the droplet will be marked as `missing`. Defaults to `30`.
+* `node['cloudfoundry_health_manager']['interval']['droplets_analysis']` -
+How often (in seconds) to run a complete ananlysis of all the running
+droplets. Defaults to `20`.
+* `node['cloudfoundry_health_manager']['interval']['flapping_death']` - Limit
+number of crashes before marking an app as `flapping`. Defaults to `1`.
+* `node['cloudfoundry_health_manager']['interval']['flapping_timeout']` - Time
+limit (in seconds) between consecutive crashes for the purpose of flap
+detection. Defaults to `180`.
+* `node['cloudfoundry_health_manager']['interval']['restart_timeout']` - TODO:
+Find out what this does. Defaults to `20`.
+* `node['cloudfoundry_health_manager']['interval']['min_restart_delay']` -
+Minimum wait (in seconds) before restarting a flapping instance. Defaults to `60`.
+* `node['cloudfoundry_health_manager']['interval']['max_restart_delay']` -
+Maximum wait (in seconds) before restarting a flapping instance. Defaults to `480`.
+* `node['cloudfoundry_health_manager']['interval']['giveup_crash_number']` -
+Maximum number of restarts for a flapping instance before giving up and
+stopping it. Defaults to `4`.
+* `node['cloudfoundry_health_manager']['interval']['stable_state']` - TODO:
+Find out what this does. Defaults to `20`.
 
 License and Author
 ==================
