@@ -22,7 +22,6 @@ Cookbooks
 ---------
 
 * cloudfoundry
-* cloudfoundry-cloud_controller
 * rbenv
 
 Usage
@@ -31,7 +30,7 @@ Usage
 This cookbook will install the CloudFoundry Health Manager on the target
 node along with the necessary configuration files and init scripts to
 run it. Because the database required by a Health Manager is shared with
-the CloudController, you need to use the
+the CloudController, you may need to use the
 `cloudfoundry-cloud_controller::database` recipe from the
 `cloudfoundry-cloud_controller` cookbook to setup the Health Manager's
 database. Assuming you're running a Health Manager on the same machine

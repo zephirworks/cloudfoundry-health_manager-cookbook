@@ -1,5 +1,6 @@
 site 'http://community.opscode.com/api/v1'
 
 cookbook "nats"
+cookbook "cloudfoundry-cloud_controller"
 
 cookbook "postgresql", '~> 2.0.2'

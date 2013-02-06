@@ -20,7 +20,6 @@
 
 node.default['cloudfoundry_health_manager']['ruby_version'] = node['cloudfoundry']['ruby_version']
 
-include_recipe "cloudfoundry-cloud_controller::_server_deps"
 include_recipe "rbenv::default"
 include_recipe "rbenv::ruby_build"
 
