@@ -32,9 +32,6 @@ default['cloudfoundry_health_manager']['reference']    = "2380722539bb8169602a38
 default['cloudfoundry_health_manager']['log_level'] = "info"
 
 # TODO (trotter): Find out what this does.
-default['cloudfoundry_health_manager']['database_scan']    = 60
-
-# TODO (trotter): Find out what this does.
 default['cloudfoundry_health_manager']['droplet_lost']     = 30
 
 # TODO (trotter): Find out what this does.
