@@ -5,7 +5,7 @@ logging:
   file:  <%= node['cloudfoundry_health_manager']['log_file'] %>
   level: <%= node['cloudfoundry_health_manager']['log_level'] %>
 pid: <%= node['cloudfoundry_health_manager']['pid_file'] %>
-rails_environment: production
+index: 0
 
 intervals:
   droplet_lost: <%= node['cloudfoundry_health_manager']['droplet_lost'] %>
