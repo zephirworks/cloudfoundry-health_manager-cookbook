@@ -34,9 +34,14 @@ run it.
 Attributes
 ==========
 
-* `node['cloudfoundry_health_manager']['log_level']` - The Health Manager's log level. Default is `info"`.
-* `node['cloudfoundry_health_manager']['log_file']` - Where to write the Health Manager's logs. Default is `File.join(node['cloudfoundry']['log_dir'], "health_manager.log")`.
-* `node['cloudfoundry_health_manager']['pid_file']` - Where to write the Health Manager's pid file. Default is `File.join(node['cloudfoundry']['pid_dir'], "health_manager.pid")`.
+* `node['cloudfoundry_health_manager']['log_level']` - The health_manager
+log level. Defaults to `info"`.
+* `node['cloudfoundry_health_manager']['log_file']` - Where to write the
+health_manager logs. Defaults to
+`File.join(node['cloudfoundry']['log_dir'], "health_manager.log")`.
+* `node['cloudfoundry_health_manager']['pid_file']` - Where to write the
+health_manager pid file. Defaults to
+`File.join(node['cloudfoundry']['pid_dir'], "health_manager.pid")`.
 
 You may also tune a few settings that control internal parameters of the
 algorithm. This is only recommended if you understand what you are doing.
