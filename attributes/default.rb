@@ -26,7 +26,7 @@ default['cloudfoundry_health_manager']['repo']         = "https://github.com/clo
 
 # Git reference to use when fetching the CloudFoundry code. Can be
 # either a specific sha or a reference such as `HEAD` or `master`.
-default['cloudfoundry_health_manager']['reference']    = "2380722539bb8169602a385b499465edaa92da33"
+default['cloudfoundry_health_manager']['reference']    = "211be4258511a6cad53c194fae71d86061b00fa9"
 
 # The Health Manager's log level.
 default['cloudfoundry_health_manager']['log_level'] = "info"
